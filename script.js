@@ -23,6 +23,7 @@ function infoClima(data){
     const titulo = data.name
     const pais = data.sys.country
     const temperatura = data.main.temp
+    const icon = data.weather[0].icon
     const descripcion = data.weather[0].description
 
     const infoTitulo = document.createElement('h2')
@@ -31,13 +32,18 @@ function infoClima(data){
     const infoTemp = document.createElement('p')
     infoTemp.textContent = `La tempreratura es de ${Math.floor(temperatura-conversionKelvin)}°C`
 
+    const infoIcon = document.createElement('img')
+    infoIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
+
     const infoDescripcion = document.createElement('p')
     infoDescripcion.textContent = descripcion
 
     
     datosClima.appendChild(infoTitulo)
     datosClima.appendChild(infoTemp)
+    datosClima.appendChild(infoIcon)
     datosClima.appendChild(infoDescripcion)
+
 }
 
     
